@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Visual Recommender</title>
+
+    <link rel="icon" href="icons/favicon.png">
+
+    <!--CSS-->
+
+    <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+    <link href="css/skeleton.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+    <link type="text/css" rel="stylesheet" href="qtip/jquery.qtip.css" />
+
+    <!--JS-->
+    <script src="js/script.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+  </head>
+  <body>
+
+    <div class="twelve columns" style="margin:10px" id="container">
+      <input class="ten columns" type="text" placeholder="Question" id="question">
+      <input class="button-primary two columns" type="submit" id="submit-button" value="SEARCH" onclick="extractQuestion();">
+
+      <div class="five columns" style="margin-left:0;">
+
+        <h3>Parameters</h3>
+
+        <form id="parameters" style="margin-bottom:1em;">
+          <span>
+            <label id="votes-text">Votes</label>
+            <input class="u-full-width" type="range" min="0" max="290" id="votes" onclick="OnChange('votes-text');" disabled="disabled">
+          </span>
+
+          <span>
+            <label id="views-text">Views</label>
+            <input class="u-full-width" type="range" min="0" max="264668" step="100" id="views" onclick="OnChange('views-text');" disabled="disabled">
+          </span>
+        </form>
+        <span>
+          <!--<label id="answers-text">Answers</label>
+          <input class="u-full-width" type="range" id="answers" min="0" max="26" onclick="OnChange('answers-text');" disabled="disabled">-->
+            <button class="button-primary" style="margin-top:0px;" disabled="disabled" id="answers" onclick="answerSort();">ANSWER</button>
+            <button class="button-primary" style="margin-top:0px;" disabled="disabled" id="reputation" onclick="reputationSort();">REPUTATION</button>
+        </span>
+
+        <span>
+          <h3>Tags</h3>
+          <div id="tag-canvas" class="tags">
+          </div>
+        </span>
+
+      </div>
+
+      <div class="seven columns" id ="recommendPosts">
+        <h3 id = "recommendPostsTitle">Recommended Posts &#128077;</h3>
+
+      </div>
+
+    <button class ="bottomright" id="changeSkin" onclick="changeSkin();">Dark</button>
+    </div>
+
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="qtip/jquery.qtip.js"></script>
+    <script src="js/tooltip.js"></script>
+  </body>
+</html>
